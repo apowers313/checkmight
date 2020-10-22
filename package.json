@@ -1,0 +1,26 @@
+{
+  "name": "checkmight",
+  "version": "0.1.0",
+  "description": "Type checking library",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "validation",
+    "assert",
+    "assertion",
+    "validate",
+    "check",
+    "type"
+  ],
+  "author": "Adam Powers <apowers@ato.ms>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^7.11.0",
+    "eslint-plugin-jsdoc": "^30.6.4",
+    "eslint-plugin-mocha": "^8.0.0",
+    "mocha": "^8.1.3"
+  }
+}
