@@ -14,13 +14,13 @@ describe("is", function() {
         it("isString throws on bad value", function() {
             assert.throws(() => {
                 cm.isString(3);
-            }, TypeError, "CheckMightError!");
+            }, TypeError, "isString() failed due to value: 3");
         });
 
         it("isString throws on undefined", function() {
             assert.throws(() => {
                 cm.isString(undefined);
-            }, TypeError, "CheckMightError!");
+            }, TypeError, "isString() failed due to value: undefined");
         });
     });
 
@@ -34,7 +34,7 @@ describe("is", function() {
         it("isNotString throws on bad value", function() {
             assert.throws(() => {
                 cm.isNotString("test string");
-            }, TypeError, "CheckMightError!");
+            }, TypeError, "isNotString() failed due to value: 'test string'");
         });
     });
 
@@ -49,7 +49,7 @@ describe("is", function() {
         it("isOptString throws when bad value", function() {
             assert.throws(() => {
                 cm.isOptString(3);
-            }, TypeError, "CheckMightError!");
+            }, TypeError, "isOptString() failed due to value: 3");
         });
 
         it("isOptString returns chainable on ok value", function() {
@@ -76,8 +76,8 @@ describe("is", function() {
 
     it("throws on unknown type", function() {
         assert.throws(() => {
-            cm.isOptFoo(3);
-        }, TypeError, "'Foo' is not a recognized type when calling 'isOptFoo'");
+            cm.isOptBlargh(3);
+        }, TypeError, "'Blargh' is not a recognized type when calling 'isOptBlargh'");
     });
 
     it("throws on unknown function", function() {
