@@ -1,4 +1,8 @@
-const {assert} = require("chai");
+const chai = require("chai");
+const chaiAsPromised = require("chai-as-promised");
+const {assert} = chai;
+chai.use(chaiAsPromised);
+
 const {
     isString,
     isObject,
@@ -14,27 +18,27 @@ const {
 
 describe("types", function() {
     describe("string", function() {
-        it("isString 'foo'", function() {
-            isString("foo");
+        it("isString 'foo'", async function() {
+            return isString("foo");
         });
 
         it("isString new String()", function() {
-            isString(new String("foo"));
+            return isString(new String("foo"));
         });
 
         it("isString throws", function() {
             assert.throws(() => {
-                isString(null);
-            }, TypeError, "isString() failed due to value: null");
+                isString(17);
+            }, TypeError, "isString() failed due to value: 17");
         });
 
         describe("MinLength", function() {
             it("hasMinLength passes", function() {
-                isString("foo")
+                return isString("foo")
                     .hasMinLength(2);
             });
 
-            it("hasMinLength throws", function() {
+            it("hasMinLength rejects", function() {
                 assert.throws(() => {
                     isString("foo")
                         .hasMinLength(5);
@@ -149,49 +153,48 @@ describe("types", function() {
         });
 
         describe("doesReturn", function() {
-            it("does function call", function(done) {
-                function foo() {
-                    done();
-                }
-                isFunction(foo)
+            it("does function call", function() {
+                function foo() {}
+                let p = isFunction(foo)
                     .doesReturn();
+                assert.instanceOf(p, Promise);
+                return p;
             });
 
-            it("gets called with args", function(done) {
+            it("gets called with args", function() {
+                let wasCalled = false;
                 function foo(a, b, c) {
                     assert.strictEqual(a, "one");
                     assert.strictEqual(b, "two");
                     assert.strictEqual(c, "three");
-                    done();
+                    wasCalled = true;
                 }
-                isFunction(foo)
+                let p = isFunction(foo)
                     .doesReturn("one", "two", "three");
+                assert.instanceOf(p, Promise);
+                assert.isFulfilled(p);
+                assert.isTrue(wasCalled);
+                return p;
             });
 
-            it("gets called with this");
-            it("returns type chainable");
-        });
-
-        describe("doesReturnString", function() {
-            it("ok on string return", function() {
-                function foo() {
-                    return "this is a test";
+            it("gets return value", async function() {
+                let wasCalled = false;
+                function foo(a, b, c) {
+                    assert.strictEqual(a, "one");
+                    assert.strictEqual(b, "two");
+                    assert.strictEqual(c, "three");
+                    wasCalled = true;
+                    return {blubber: "butt"};
                 }
-                isFunction(foo)
-                    .doesReturnString();
+                let p = isFunction(foo)
+                    .doesReturn("one", "two", "three");
+                assert.instanceOf(p, Promise);
+                assert.isFulfilled(p);
+                assert.isTrue(wasCalled);
+                let ret = await p;
+                assert.isObject(ret);
+                assert.deepEqual(ret, {blubber: "butt"});
             });
-
-            it("throws on non-string", function() {
-                function foo() {
-                    return {foo: "bar"};
-                }
-
-                assert.throws(() => {
-                    isFunction(foo).doesReturnString();
-                }, TypeError, "isString() failed due to value: { foo: 'bar' }");
-            });
-
-            it("returns attr chainable");
         });
     });
 
@@ -199,14 +202,29 @@ describe("types", function() {
         it("isNumber", function() {
             isNumber(3);
         });
+
         it("isNumber throws", function() {
             assert.throws(() => {
                 isNumber("bob");
             }, TypeError, "isNumber() failed due to value: 'bob'");
         });
+
+        describe("hasValue", function() {
+            it("passes with 42", function() {
+                isNumber(42).hasValue(42);
+            });
+
+            it("throws with 43", function() {
+                assert.throws(() => {
+                    isNumber(42).hasValue(43);
+                }, TypeError, "hasValue() failed due to value: 42");
+            });
+        });
     });
 
     describe("promise", function() {
+        this.slow(2000);
+
         it("isPromise", function() {
             isPromise(new Promise(() => {}));
         });
@@ -218,8 +236,6 @@ describe("types", function() {
         });
 
         describe("doesResolve", function() {
-            this.slow(2000);
-
             it("resolves", function() {
                 let p = new Promise((resolve) => {
                     setTimeout(function() {
@@ -274,8 +290,30 @@ describe("types", function() {
         });
 
         describe("doesReject", function() {
-            it("rejects");
-            it("throws on resolve");
+            it("rejects", function() {
+                let p = new Promise((resolve, reject) => {
+                    setTimeout(function() {
+                        reject(747);
+                    }, 500);
+                });
+
+                return isPromise(p)
+                    .doesReject();
+            });
+
+            it("throws on resolve", function() {
+                let p = new Promise((resolve) => {
+                    setTimeout(function() {
+                        resolve(748);
+                    }, 500);
+                });
+
+                return assert.isRejected(
+                    isPromise(p).doesReject(),
+                    TypeError,
+                    "doesReject() failed due to value: Promise { 748 }",
+                );
+            });
         });
     });
 });
