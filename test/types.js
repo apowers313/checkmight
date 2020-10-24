@@ -301,6 +301,15 @@ describe("types", function() {
                     .doesReject();
             });
 
+            it("rejects with throw", function() {
+                let p = new Promise((resolve, reject) => {
+                    throw new Error("test error");
+                });
+
+                return isPromise(p)
+                    .doesReject();
+            });
+
             it("throws on resolve", function() {
                 let p = new Promise((resolve) => {
                     setTimeout(function() {
