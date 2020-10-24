@@ -76,7 +76,7 @@ plugin(function(mod) {
 
 cm.isDrink({drink: "beer"}).hasType("beer"); // good
 cm.isDrink(42); // TypeError: isDrink() failed due to value: 42
-cm.isDrink({drink: "beer"}).hasType("wine"); // throws
+cm.isDrink({drink: "beer"}).hasType("wine"); // TypeError: TypeError: hasType() failed due to value: { drink: 'beer' }
 ```
 
 Advanced example
