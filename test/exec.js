@@ -1,5 +1,5 @@
 const {assert} = require("chai");
-const {exec} = require("..");
+// const {exec} = require("..");
 
 describe("exec", function() {
     it("gets context");
