@@ -89,18 +89,18 @@ Advanced example
 
 
 ## Type Index
-* [Boolean](https://apowers313.github.io/checkmight/boolean.md): isBoolean / isNotBoolean / isOptBoolean
-* [Date](https://apowers313.github.io/checkmight/date.md): isDate / isNotDate / isOptDate
-* [False](https://apowers313.github.io/checkmight/false.md): isFalse / isNotFalse / isOptFalse
-* [Function](https://apowers313.github.io/checkmight/function.md): isFunction / isNotFunction / isOptFunction
-* [Null](https://apowers313.github.io/checkmight/null.md): isNull / isNotNull / isOptNull
-* [Number](https://apowers313.github.io/checkmight/number.md): isNumber / isNotNumber / isOptNumber
-* [Object](https://apowers313.github.io/checkmight/object.md): isObject / isNotObject / isOptObject
-* [Promise](https://apowers313.github.io/checkmight/promise.md): isPromise / isNotPromise / isOptPromise
-* [RegExp](https://apowers313.github.io/checkmight/regexp.md): isRegExp / isNotRegExp / isOptRegExp
-* [String](https://apowers313.github.io/checkmight/string.md): isString / isNotString / isOptString
-* [True](https://apowers313.github.io/checkmight/true.md): isTrue / isNotTrue / isOptTrue
-* [Undefined](https://apowers313.github.io/checkmight/undefined.md): isUndefined / isNotUndefined / isOptUndefined
+* [Boolean](https://apowers313.github.io/checkmight/boolean.html): isBoolean / isNotBoolean / isOptBoolean
+* [Date](https://apowers313.github.io/checkmight/date.html): isDate / isNotDate / isOptDate
+* [False](https://apowers313.github.io/checkmight/false.html): isFalse / isNotFalse / isOptFalse
+* [Function](https://apowers313.github.io/checkmight/function.html): isFunction / isNotFunction / isOptFunction
+* [Null](https://apowers313.github.io/checkmight/null.html): isNull / isNotNull / isOptNull
+* [Number](https://apowers313.github.io/checkmight/number.html): isNumber / isNotNumber / isOptNumber
+* [Object](https://apowers313.github.io/checkmight/object.html): isObject / isNotObject / isOptObject
+* [Promise](https://apowers313.github.io/checkmight/promise.html): isPromise / isNotPromise / isOptPromise
+* [RegExp](https://apowers313.github.io/checkmight/regexp.html): isRegExp / isNotRegExp / isOptRegExp
+* [String](https://apowers313.github.io/checkmight/string.html): isString / isNotString / isOptString
+* [True](https://apowers313.github.io/checkmight/true.html): isTrue / isNotTrue / isOptTrue
+* [Undefined](https://apowers313.github.io/checkmight/undefined.html): isUndefined / isNotUndefined / isOptUndefined
 
 
 ## Attribute Index
