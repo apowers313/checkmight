@@ -1,0 +1,5 @@
+## String
+
+### isString().hasMinLength()
+
+
