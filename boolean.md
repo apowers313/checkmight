@@ -7,5 +7,6 @@
 + isBoolean(false)
 + isBoolean(new Boolean(false))
 - isBoolean('bob')
+- isBoolean(1)
 ```
 

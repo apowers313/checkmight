@@ -6,5 +6,7 @@
 - isFalse(true)
 + isFalse(false)
 - isFalse(new Boolean(false))
+- isFalse(0)
+- isFalse(null)
 ```
 

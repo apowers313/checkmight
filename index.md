@@ -92,14 +92,16 @@ Advanced example
 * [Boolean](https://apowers313.github.io/checkmight/boolean.html): isBoolean / isNotBoolean / isOptBoolean
 * [Date](https://apowers313.github.io/checkmight/date.html): isDate / isNotDate / isOptDate
 * [False](https://apowers313.github.io/checkmight/false.html): isFalse / isNotFalse / isOptFalse
+* [Falsy](https://apowers313.github.io/checkmight/falsy.html): isFalsy / isNotFalsy / isOptFalsy
 * [Function](https://apowers313.github.io/checkmight/function.html): isFunction / isNotFunction / isOptFunction
+* [NaN](https://apowers313.github.io/checkmight/nan.html): isNaN / isNotNaN / isOptNaN
 * [Null](https://apowers313.github.io/checkmight/null.html): isNull / isNotNull / isOptNull
 * [Number](https://apowers313.github.io/checkmight/number.html): isNumber / isNotNumber / isOptNumber
 * [Object](https://apowers313.github.io/checkmight/object.html): isObject / isNotObject / isOptObject
 * [Promise](https://apowers313.github.io/checkmight/promise.html): isPromise / isNotPromise / isOptPromise
 * [RegExp](https://apowers313.github.io/checkmight/regexp.html): isRegExp / isNotRegExp / isOptRegExp
 * [String](https://apowers313.github.io/checkmight/string.html): isString / isNotString / isOptString
-* [True](https://apowers313.github.io/checkmight/true.html): isTrue / isNotTrue / isOptTrue
+* [Truthy](https://apowers313.github.io/checkmight/truthy.html): isTruthy / isNotTruthy / isOptTruthy
 * [Undefined](https://apowers313.github.io/checkmight/undefined.html): isUndefined / isNotUndefined / isOptUndefined
 
 
@@ -107,8 +109,10 @@ Advanced example
 * [Boolean](#user-content-boolean)
 * [Date](#user-content-date)
 * [False](#user-content-false)
+* [Falsy](#user-content-falsy)
 * [Function](#user-content-function)
     * [doesReturn](#user-content-isfunctiondoesreturn)
+* [NaN](#user-content-nan)
 * [Null](#user-content-null)
 * [Number](#user-content-number)
     * [hasValue](#user-content-isnumberhasvalue)
@@ -119,6 +123,6 @@ Advanced example
 * [RegExp](#user-content-regexp)
 * [String](#user-content-string)
     * [hasMinLength](#user-content-isstringhasminlength)
-* [True](#user-content-true)
+* [Truthy](#user-content-truthy)
 * [Undefined](#user-content-undefined)
 
