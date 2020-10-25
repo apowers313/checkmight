@@ -94,7 +94,7 @@ function writeTypeIndex(fd, idx) {
     print(fd, "");
     print(fd, "## Type Index");
     idx.forEach((type) => {
-        print(fd, `* [${type.typeName}](${URL_ROOT}${type.typeName.toLowerCase()}.md): is${type.typeName} / isNot${type.typeName} / isOpt${type.typeName}`);
+        print(fd, `* [${type.typeName}](${URL_ROOT}${type.typeName.toLowerCase()}.html): is${type.typeName} / isNot${type.typeName} / isOpt${type.typeName}`);
     });
     print(fd, "");
 }
